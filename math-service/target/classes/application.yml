@@ -1,0 +1,27 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /math
+
+spring:
+  application:
+    name: math-service
+  cloud:
+    config:
+      label: main
+      name: config
+      profile: dev
+      uri: http://localhost:8888
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    healthcheck:
+      enabled: true

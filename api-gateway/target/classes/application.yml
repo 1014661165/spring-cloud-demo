@@ -1,0 +1,24 @@
+server:
+  port: 9200
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: path_route
+        uri: http://10.162.155.195:9000
+        predicates:
+        - Path=/math/**
+      - id: path_route2
+        uri: http://10.162.155.195:9100
+        predicates:
+        - Path=/science-computation/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    healthcheck:
+      enabled: true
