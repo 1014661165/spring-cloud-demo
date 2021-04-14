@@ -10,6 +10,13 @@ spring:
         server-addr: localhost:8848
       config:
         server-addr: localhost:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:18080
+      log:
+        dir: alibaba/alibaba-math-service/logs
+
 
 management:
   endpoints:
